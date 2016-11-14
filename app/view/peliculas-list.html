@@ -1,18 +1,28 @@
-<p>Película favorita</p>
-<button (click)="onShowHide(true)" [class.hideData]="mostrarDatos===true">Mostrar datos</button>
-<button (click)="onShowHide(false)" [class.hideData]="mostrarDatos===false">Ocultar datos</button>
-<ul *ngIf="mostrarDatos===true">
-	<li>Titulo:<strong>{{pelicula.titulo}}</strong></li>
-	<li>Director:<strong>{{pelicula.director}}</strong></li>
-	<li>Año:<strong>{{pelicula.anio}}</strong></li>
-</ul>
-<p>Cambiar Titulo: <input type="text" (keypress)="debug(true)" [(ngModel)]="pelicula.titulo" /></p>
-<hr/>
-<p>Listado de Películas</p>
-<ul *ngFor="let pelicula of peliculas" style="margin-bottom: 20px">
-	<li (click)="onCambiaPelicula(pelicula)" class="pelicula-title" [class.clicked]="peliculaElegida.titulo===pelicula.titulo">Titulo:<strong>{{pelicula.titulo}}</strong></li>
-	<li>Director:<strong>{{pelicula.director}}</strong></li>
-	<!-- isset para controlar si existe -->
-	<li *ngIf="pelicula.anio">Año:<strong>{{pelicula.anio}}</strong></li>
-	<li><a [routerLink]="['/crear-pelicula',pelicula.titulo, pelicula.director,pelicula.anio]">Crear basada en esta</a></li>
-</ul>
+<h3>Listado de películas</h3>
+<h3>Película Favorita</h3>
+<button (click)="onShowHide()" [class.hideData]="mostrarDatos===true">Mostrar datos</button>
+<button (click)="onShowHide()" [class.hideData]="mostrarDatos===false">Ocultar datos</button>
+
+<div class="input-field">
+<i class="material-icons prefix">videocam</i>
+<input type="text" [(ngModel)]="pelicula.titulo" (keypress)="debug(true)"/> 
+</div>
+	<ul *ngIf="mostrarDatos===true">
+		<li>Título: <strong>{{pelicula.titulo}}</strong></li>
+		<li>Director: <strong>{{pelicula.director}}</strong></li>
+		<li>Año: <strong>{{pelicula.anio}}</strong></li>
+	</ul>
+<h3>Listado de peliculas</h3>
+
+<div class="row">
+<div *ngFor="let pelicula of peliculas" class="col s12 m6 l4 listaPelis">
+	<div class="card-panel teal z-depth-5" style="min-height: 180px">
+		<ul>
+		<li [class.clicked]="peliculaElegida.titulo===pelicula.titulo" (click)="onCambiaPelicula(pelicula)" class="pelicula-title">Título: <strong>{{pelicula.titulo}}</strong></li>
+		<li>Director: <strong>{{pelicula.director}}</strong></li>
+		<li *ngIf="pelicula.anio">Año: <strong>{{pelicula.anio}}</strong></li>
+		<li><a class="waves-effect waves-light btn orange darken-1" [routerLink]="['/crear-pelicula',pelicula.titulo,pelicula.director,pelicula.anio]"><i class="material-icons left">cloud</i>Nueva Copiando</a></li>
+		</ul>
+	</div>
+</div>
+</div>

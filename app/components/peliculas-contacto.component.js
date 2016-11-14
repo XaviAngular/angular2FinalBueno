@@ -8,22 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var mok_peliculas_1 = require("./mok.peliculas");
-var PeliculasService = (function () {
-    function PeliculasService() {
+var core_1 = require('@angular/core');
+var PeliculasContactoComponent = (function () {
+    function PeliculasContactoComponent() {
+        this.titulo = "Contacta con nosotros";
     }
-    PeliculasService.prototype.getPeliculas = function () {
-        return mok_peliculas_1.PELICULAS;
-    };
-    PeliculasService.prototype.insertPelicula = function (pelicula) {
-        Promise.resolve(mok_peliculas_1.PELICULAS).then(function (peliculas) { return peliculas.push(pelicula); });
-    };
-    PeliculasService = __decorate([
-        core_1.Injectable(), 
+    PeliculasContactoComponent = __decorate([
+        core_1.Component({
+            selector: 'contacto',
+            templateUrl: 'app/view/contacto.html'
+        }), 
         __metadata('design:paramtypes', [])
-    ], PeliculasService);
-    return PeliculasService;
+    ], PeliculasContactoComponent);
+    return PeliculasContactoComponent;
 }());
-exports.PeliculasService = PeliculasService;
-//# sourceMappingURL=peliculas.service.js.map
+exports.PeliculasContactoComponent = PeliculasContactoComponent;
+//# sourceMappingURL=peliculas-contacto.component.js.map

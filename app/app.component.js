@@ -12,8 +12,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
 var AppComponent = (function () {
+    //inicializar las variables
     function AppComponent() {
-        this.titulo = "Películas con Angular 2";
+        this.tituloApp = "Peliculas con Angular 2";
     }
     AppComponent = __decorate([
         core_1.Component({

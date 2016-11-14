@@ -1,55 +1,42 @@
-// Importar el núcleo de Angular
-import {Component, OnInit} from '@angular/core';
+//Importar el núcleo de Angular
+import {Component,OnInit} from '@angular/core';
+import {Pelicula} from '../model/pelicula';
+import {PeliculasService} from '../services/peliculas.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-//Importar el modelo pelicula
-import {Pelicula} from "../model/pelicula";
-//importar servicio
-import {PeliculasService} from "../services/peliculas.service";
-//CONFIGURAR EL ROUTING
 
-// Decorador component, indicamos en que etiqueta se va a cargar la plantilla
+
+
 @Component({
-    selector: 'peliculas-list',
-    templateUrl: 'app/view/peliculas-list.html',
-    providers:[PeliculasService]
+	selector:'peliculas-list',
+	templateUrl:'app/view/peliculas-list.html',
+	providers:[PeliculasService]
 })
- 
-// Clase del componente donde iran los datos y funcionalidades
-export class PeliculasListComponent { 
-	public pelicula: Pelicula;
-	public peliculaElegida: Pelicula;
-	public mostrarDatos: boolean;
-	public peliculas:Array<any>;
-	//servicios
-	public datoServicio;
+export class PeliculasListComponent{
+	public pelicula:Pelicula;
+	public mostrarDatos:Boolean;
+	public peliculas:Array<Pelicula>;
+	public peliculaElegida:Pelicula;
 
-	//Inicializar las variables de la clase.
-	//Para usar un servicio hay que declarlo en el construntor
-	constructor (
-		private _route:ActivatedRoute,
-		private _router:Router,
-		private _peliculasService:PeliculasService){		
-		//this.debug();
-		this.mostrarDatos = false;
-		this.peliculaElegida =new Pelicula(1, "Batman v Superman","Zack Snider", 2016);
+	//inicializar las variables
+	constructor(private _peliculasService:PeliculasService){		
 		this.peliculas =this._peliculasService.getPeliculas();
-		this.pelicula = this.peliculas[0];
-
+		this.pelicula= this.peliculas[0];
+		this.peliculaElegida= this.peliculas[0];
+		this.debug();
+		this.mostrarDatos=false;
 	}
-	debug(titulo=null){//Parametro opcional, si lo recibe o no
-		if (titulo!= null){
-			console.log(this.pelicula.titulo);
-		} else{
-			console.log(this.pelicula);
-		}
-		
+	public onShowHide(){
+		this.mostrarDatos=!this.mostrarDatos;
 	}
-	onShowHide(value){
-		this.mostrarDatos=value;
-	}
-	onCambiaPelicula(pelicula){
+	public onCambiaPelicula(pelicula){
 		this.pelicula=pelicula;
 		this.peliculaElegida=pelicula;
-
+	}
+	public debug(titulo=null){
+		if (titulo!=null){
+			console.log(this.pelicula.titulo);
+		}else {
+			console.log(this.pelicula);
+		}		
 	}
 }

@@ -8,19 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// Importar el núcleo de Angular
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var peliculas_service_1 = require('../services/peliculas.service');
 var pelicula_1 = require("../model/pelicula");
-//importar servicios
-var peliculas_service_1 = require("../services/peliculas.service");
-// Decorador component, indicamos en que etiqueta se va a cargar la plantilla
 var CrearPeliculaComponent = (function () {
-    function CrearPeliculaComponent(_peliculasService, _route, _router) {
+    function CrearPeliculaComponent(_peliculasService, _router, _route) {
         this._peliculasService = _peliculasService;
-        this._route = _route;
         this._router = _router;
+        this._route = _route;
         this.TituloPelicula = "";
+        this.tituloCrear = "Crear nueva película";
     }
     CrearPeliculaComponent.prototype.onSubmit = function () {
         this._peliculasService.insertPelicula(this.nuevaPelicula);
@@ -39,7 +37,7 @@ var CrearPeliculaComponent = (function () {
             templateUrl: 'app/view/crear-pelicula.html',
             providers: [peliculas_service_1.PeliculasService]
         }), 
-        __metadata('design:paramtypes', [peliculas_service_1.PeliculasService, router_1.ActivatedRoute, router_1.Router])
+        __metadata('design:paramtypes', [peliculas_service_1.PeliculasService, router_1.Router, router_1.ActivatedRoute])
     ], CrearPeliculaComponent);
     return CrearPeliculaComponent;
 }());

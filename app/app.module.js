@@ -12,11 +12,11 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var forms_1 = require('@angular/forms');
-var peliculas_list_component_1 = require("./components/peliculas-list.component");
-var peliculas_footer_component_1 = require("./components/peliculas-footer.component");
-var contacto_1 = require("./components/contacto");
-var crear_pelicula_component_1 = require("./components/crear-pelicula.component");
-var app_routing_1 = require("./app.routing");
+var app_routing_1 = require('./app.routing');
+var peliculas_list_component_1 = require('./components/peliculas-list.component');
+var peliculas_footer_component_1 = require('./components/peliculas-footer.component');
+var peliculas_contacto_component_1 = require('./components/peliculas-contacto.component');
+var crear_pelicula_component_1 = require('./components/crear-pelicula.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,9 +26,8 @@ var AppModule = (function () {
             declarations: [app_component_1.AppComponent,
                 peliculas_list_component_1.PeliculasListComponent,
                 peliculas_footer_component_1.PeliculasFooterComponent,
-                contacto_1.ContactoComponent,
-                crear_pelicula_component_1.CrearPeliculaComponent
-            ],
+                peliculas_contacto_component_1.PeliculasContactoComponent,
+                crear_pelicula_component_1.CrearPeliculaComponent],
             providers: [app_routing_1.appRoutingProviders],
             bootstrap: [app_component_1.AppComponent]
         }), 

@@ -1,15 +1,15 @@
 import {Injectable} from "@angular/core";
-import {Pelicula} from "../model/pelicula";
-import {PELICULAS} from "./mock.peliculas";
+import {PELICULAS} from "./mok.peliculas";
+import {Pelicula} from '../model/pelicula';
 
-//Decorador
 @Injectable()
 
 export class PeliculasService{
 	getPeliculas(){
 		return PELICULAS;
 	}
-	insertPelicula(pelicula: Pelicula){
+	insertPelicula(pelicula:Pelicula){
 		Promise.resolve(PELICULAS).then((peliculas:Pelicula[]) => peliculas.push(pelicula));
 	}
 }
+

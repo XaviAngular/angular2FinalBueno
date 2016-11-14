@@ -1,19 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis');
-h1 {
-	font-family: 'Dosis', sans-serif;
-	color:#444;
-
+@import url('https://fonts.googleapis.com/css?family=Muli:300');
+*{
+	font-family: 'Muli', sans-serif;
+}
+h2{
+	color:#ba68c8 ;
 }
 .hideData{
-	display: none;
+	display:none;
 }
 .pelicula-title{
-	cursor: pointer;
+	cursor:pointer;
 }
-.pelicula-title:hover{
-	text-decoration: underline;
-}
-.clicked{
-	color:red;
-	font-size: 20px;
-}
+.clicked{color:#e4ff00;font-size:22px;}
+.listaPelis{min-height:210px!important;color:#fff}
