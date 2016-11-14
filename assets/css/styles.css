@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+h1 {
+	font-family: 'Dosis', sans-serif;
+	color:#444;
+
+}
+.hideData{
+	display: none;
+}
+.pelicula-title{
+	cursor: pointer;
+}
+.pelicula-title:hover{
+	text-decoration: underline;
+}
+.clicked{
+	color:red;
+	font-size: 20px;
+}
